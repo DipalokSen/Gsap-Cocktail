@@ -1,11 +1,28 @@
 import {React,useState,useRef} from 'react'
 import { sliderLists } from '../../Constant'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Menu = () => {
   
   const [currentIndex, setcurrentIndex] = useState(0);
 
   const contentRef = useRef();
+
+
+ useGSAP(()=>{
+
+
+   gsap.fromTo('#title',{opacity:0,color:'initial'},{opacity:1,duration:2,color:'purple',ease:'power1.inOut'})
+
+   gsap.fromTo('.cocktail img',{opacity:0,xPercent:-100},{opacity:1,xPercent:0,duration:1,ease:'power1.inOut'})
+
+   gsap.fromTo('.details h2',{opacity:0,yPercent:100},{opacity:1,duration:1,yPercent:0,ease:'power1.inOut'})
+   gsap.fromTo('.details p',{opacity:0,yPercent:100},{opacity:1,duration:1,yPercent:0,ease:'power1.inOut', delay: 0.5})
+
+  
+
+ },[currentIndex])
   
   const gottoSlide=(index)=>{
  
@@ -72,7 +89,7 @@ const Menu = () => {
     <div className="recipe">
         <div ref={contentRef}>
             <p className=''>Recipe For:</p>
-            <p id="title">{currentCocktail.name}</p>
+            <p id="title" className='text-xl'>{currentCocktail.name}</p>
         </div>
 
         <div className='details'>
