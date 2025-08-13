@@ -6,6 +6,7 @@ import Hero from './Components/Hero'
 import CocktailSection from './Components/CocktailSection'
 import About from './Components/About'
 import Art from './Components/Art'
+import Menu from './Components/Menu'
 
 
 gsap.registerPlugin(ScrollTrigger,SplitText)
@@ -22,8 +23,8 @@ const App = () => {
 
       <About/>
       <Art/>
-
-      <div className='h-screen bg-red-200'></div>
+    <Menu/>
+      
     </main>
   )
 }
